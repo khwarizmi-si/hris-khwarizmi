@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="HRIS terintegrasi sepenuhnya milik Anda. Sistem manajemen perusahaan yang stabil dan siap untuk jangka panjang.">
+  <title>HRIS by Khwarizmi — Sepenuhnya Milik Anda</title>
+
+  <link rel="shortcut icon" href="/img/logo-khwarizmi.png" type="image/x-icon">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#01866F',
+            brandDark: '#006151',
+            brandSoft: '#3FAE97',
+            accent: '#F97316', // Warna oranye sebagai secondary color
+            accentDark: '#EA580C',
+            surface: '#F8FAFC',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          boxShadow: {
+            '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+            'card': '0 8px 30px rgba(0, 0, 0, 0.08)',
+            'deep': '0 20px 60px rgba(0, 0, 0, 0.1)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { 
+      background-color: #FFFFFF; 
+      color: #1E293B; 
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .bg-grid {
+      background-image: radial-gradient(#e2e8f0 0.8px, transparent 0.8px);
+      background-size: 40px 40px;
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-gradient {
+      background: radial-gradient(circle at 100% 0%, rgba(1, 134, 111, 0.08) 0%, transparent 40%),
+                  radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.05) 0%, transparent 40%);
+    }
+
+    .mockup-frame {
+      position: relative;
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: perspective(1200px) rotateY(-12deg) rotateX(4deg);
+    }
+
+    .mockup-frame:hover {
+      transform: perspective(1200px) rotateY(0deg) rotateX(0deg);
+    }
+
+    .fase-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .fase-card:hover {
+      border-color: rgba(1, 134, 111, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-card {
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .floating-accent {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Mobile responsiveness improvements */
+    @media (max-width: 768px) {
+      .hero-gradient {
+        background: radial-gradient(circle at 100% 0%, rgba(1, 134, 111, 0.04) 0%, transparent 60%);
+      }
+      
+      .mockup-frame {
+        transform: perspective(1200px) rotateY(-8deg) rotateX(2deg);
+        margin-top: 2rem;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Focus styles for accessibility */
+    a:focus, button:focus {
+      outline: 2px solid #01866F;
+      outline-offset: 2px;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #01866F;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #006151;
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-grid">
+
+<nav class="fixed top-0 w-full z-50 glass-nav bg-white/95 backdrop-blur-md border-b border-emerald-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 md:h-20 flex justify-between items-center">
+    <!-- Logo dengan Image -->
+    <div class="flex items-center gap-3 md:gap-4">
+      <div class="flex items-center">
+        <!-- Logo Image Container -->
+        <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+          <img 
+            src="/img/logo-khwarizmi.png" 
+            alt="Khwarizmi Logo" 
+            class="w-full h-full object-contain"
+          >
+        </div>
+        <h1 class="font-display font-bold text-lg md:text-xl tracking-tight ml-3 text-slate-900">HRIS by <span class="text-emerald-600">Khwarizmi</span></h1>
+      </div>
+    </div>
+    
+    <!-- Navigation Links -->
+    <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">
+      <a href="#masalah" class="hover:text-emerald-600 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-600 after:transition-all after:duration-300 hover:after:w-full">Masalah</a>
+      <a href="#solusi" class="hover:text-emerald-600 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-600 after:transition-all after:duration-300 hover:after:w-full">Solusi</a>
+      <a href="#fase" class="hover:text-emerald-600 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-600 after:transition-all after:duration-300 hover:after:w-full">Fase</a>
+      <a href="#why" class="hover:text-emerald-600 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-600 after:transition-all after:duration-300 hover:after:w-full">Keunggulan</a>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="https://wa.me/6281282251136?text=Halo%20Khwarizmi%2C%20saya%20ingin%20konsultasi%20mengenai%20sistem%20HRIS." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-xs font-bold rounded-full hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 shadow-lg shadow-emerald-600/20 hover:shadow-emerald-700/30 hover:-translate-y-0.5">
+      <i class="fab fa-whatsapp text-sm"></i>
+      <span class="hidden sm:inline">Konsultasi Gratis</span>
+      <span class="sm:hidden">Konsultasi</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 hero-gradient overflow-hidden">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div class="relative z-10">
+      <div class="inline-flex items-center gap-3 px-4 py-2 bg-brand/10 rounded-full border border-brand/20 text-brand text-xs font-bold uppercase tracking-wider mb-6 md:mb-8">
+        <i class="fas fa-rocket text-xs"></i>
+        Modern Digital Infrastructure
+      </div>
+      
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.05] mb-6 tracking-tighter">
+        HRIS Terintegrasi,<br>
+        <span class="text-brand">Sepenuhnya Milik Anda</span>
+      </h2>
+      
+      <div class="mb-8 md:mb-10">
+        <p class="text-slate-600 text-lg md:text-xl leading-relaxed">
+          Miliki sistem manajemen perusahaan yang lebih stabil dan siap untuk jangka panjang. HRIS by Khwarizmi membantu perusahaan membangun sistem HR milik mereka sendiri yang terintegrasi, dapat dikembangkan, dan dikendalikan penuh oleh perusahaan.
+        </p>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <a href="https://wa.me/6281282251136?text=Halo%20Khwarizmi%2C%20saya%20ingin%20konsultasi%20mengenai%20sistem%20HRIS." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 md:px-12 py-4 md:py-5 bg-brand text-white font-bold rounded-2xl shadow-2xl shadow-brand/30 hover:bg-brandDark hover:-translate-y-1 transition-all duration-300">
+          <i class="fab fa-whatsapp text-lg"></i>
+          Konsultasi Gratis Sekarang
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-0">
+      <div class="mockup-frame">
+        <div class="absolute -inset-6 md:-inset-10 bg-brand/10 rounded-full blur-[80px] md:blur-[120px] floating-accent"></div>
+        <div class="bg-white p-3 rounded-3xl shadow-deep">
+          <img src="img/mockup-hris.png" 
+               alt="Dashboard HRIS Terintegrasi - Sistem Manajemen Perusahaan Modern"
+               class="rounded-2xl w-full aspect-[4/3] object-cover shadow-inner">
+        </div>
+        
+        <div class="absolute -bottom-6 -left-4 md:-bottom-8 md:-left-8 bg-white/95 backdrop-blur-md p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-100 flex items-center gap-3 md:gap-4">
+          <div class="w-10 h-10 md:w-12 md:h-12 bg-emerald-50 text-brand rounded-xl md:rounded-2xl flex items-center justify-center">
+            <i class="fas fa-shield-alt text-lg md:text-xl"></i>
+          </div>
+          <div>
+            <p class="text-[10px] md:text-xs font-black text-slate-400 uppercase">System Ownership</p>
+            <p class="text-slate-900 font-bold text-sm md:text-base">100% Milik Anda</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Masalah Section -->
+<section id="masalah" class="py-24 px-4 sm:px-6 bg-gradient-to-br from-orange-50/20 to-orange-50/5 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-orange-400/5 to-orange-500/3 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-br from-orange-500/5 to-orange-600/3 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-orange-300/3 to-orange-400/2 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/90 rounded-full border border-orange-200 mb-4">
+        <div class="w-2 h-2 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full animate-pulse"></div>
+        <span class="text-orange-600 font-bold text-xs uppercase tracking-wider">Common Pain Points</span>
+      </div>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tighter">Masalah yang Sering Terjadi di Perusahaan</h2>
+      <p class="text-slate-600 max-w-2xl mx-auto">Sistem HR yang tidak optimal menghambat pertumbuhan bisnis</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200 group-hover:scale-105 transition-transform duration-300">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Absensi Tidak Akurat</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
+              <span class="text-orange-600 text-xs font-medium">CRITICAL ISSUE</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Sistem manual atau software yang tidak terintegrasi menyebabkan data absensi tidak reliabel dan rawan error.</p>
+        <div class="pt-3 border-t border-slate-100">
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-1 bg-gradient-to-r from-orange-400/20 to-orange-300/10 rounded-full"></div>
+            <span class="text-orange-600 text-xs font-semibold">SOLUTION: HRIS Terintegrasi</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200 group-hover:scale-105 transition-transform duration-300">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Approval Lambat</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
+              <span class="text-orange-600 text-xs font-medium">OPERATIONAL DELAY</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Proses persetujuan dokumen memakan waktu lama dan sulit dilacak riwayatnya, menghambat produktivitas.</p>
+        <div class="pt-3 border-t border-slate-100">
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-1 bg-gradient-to-r from-orange-400/20 to-orange-300/10 rounded-full"></div>
+            <span class="text-orange-600 text-xs font-semibold">SOLUTION: Automated Workflow</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200 group-hover:scale-105 transition-transform duration-300">
+            <i class="fas fa-link"></i>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Ketergantungan Vendor</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
+              <span class="text-orange-600 text-xs font-medium">VENDOR LOCK-IN</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Biaya berulang tahunan dan risiko data terkunci jika berhenti berlangganan software pihak ketiga.</p>
+        <div class="pt-3 border-t border-slate-100">
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-1 bg-gradient-to-r from-orange-400/20 to-orange-300/10 rounded-full"></div>
+            <span class="text-orange-600 text-xs font-semibold">SOLUTION: Full Ownership</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200 group-hover:scale-105 transition-transform duration-300">
+            <i class="fas fa-ban"></i>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Sistem Tidak Fleksibel</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
+              <span class="text-orange-600 text-xs font-medium">RIGID SYSTEM</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Software kaku yang memaksa perusahaan menyesuaikan dengan sistem, bukan sistem yang mengikuti bisnis.</p>
+        <div class="pt-3 border-t border-slate-100">
+          <div class="flex items-center gap-2">
+            <div class="flex-1 h-1 bg-gradient-to-r from-orange-400/20 to-orange-300/10 rounded-full"></div>
+            <span class="text-orange-600 text-xs font-semibold">SOLUTION: Customizable Platform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Callout Section -->
+    <div class="mt-16 p-5 bg-gradient-to-r from-orange-50 to-orange-50/30 rounded-xl border border-orange-200">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-orange-200">
+            <i class="fas fa-lightbulb text-orange-500"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800">Semua masalah ini punya solusi yang sama:</p>
+            <p class="text-slate-600 text-xs">Sistem HRIS yang dibangun khusus untuk kebutuhan bisnis Anda</p>
+          </div>
+        </div>
+        <a href="#solusi" class="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-sm rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-sm hover:shadow">
+          Lihat Solusinya
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solusi Section -->
+<section id="solusi" class="py-24 px-4 sm:px-6 bg-gradient-to-br from-emerald-50/20 to-white relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-emerald-400/5 to-emerald-500/3 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-br from-emerald-500/5 to-emerald-600/3 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-emerald-300/3 to-emerald-400/2 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div>
+        <div class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/90 rounded-full border border-emerald-200 mb-4">
+          <div class="w-2 h-2 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full"></div>
+          <span class="text-emerald-600 font-bold text-xs uppercase tracking-wider">Integrated Solution</span>
+        </div>
+        
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tighter">HRIS by Khwarizmi</h2>
+        <p class="text-slate-800 text-lg md:text-xl font-semibold mb-8 leading-relaxed">
+          Satu sistem terintegrasi untuk mengelola <span class="text-emerald-600 font-bold">absensi, data karyawan, dan approval dokumen</span>—dibangun khusus untuk perusahaan Anda.
+        </p>
+        
+        <div class="space-y-4 mb-10">
+          <div class="feature-card bg-white p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-300 group">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-emerald-100 to-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center border border-emerald-200 group-hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-slate-900">Akses Real-time</h3>
+                <div class="flex items-center gap-2 mt-1">
+                  <div class="w-6 h-px bg-gradient-to-r from-emerald-400 to-emerald-300"></div>
+                  <span class="text-emerald-600 text-xs font-medium">INSTANT DATA</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm">Data karyawan dan operasional selalu update dalam satu dashboard terpusat.</p>
+          </div>
+          
+          <div class="feature-card bg-white p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-300 group">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-emerald-100 to-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center border border-emerald-200 group-hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-slate-900">Alur Kerja Rapi</h3>
+                <div class="flex items-center gap-2 mt-1">
+                  <div class="w-6 h-px bg-gradient-to-r from-emerald-400 to-emerald-300"></div>
+                  <span class="text-emerald-600 text-xs font-medium">ORGANIZED WORKFLOW</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm">Sistem yang terorganisir dan terdokumentasi dengan rapi untuk efisiensi maksimal.</p>
+          </div>
+          
+          <div class="feature-card bg-white p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-300 group">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-emerald-100 to-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center border border-emerald-200 group-hover:scale-105 transition-transform duration-300">
+                <i class="fas fa-expand-arrows-alt"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-slate-900">Siap Dikembangkan</h3>
+                <div class="flex items-center gap-2 mt-1">
+                  <div class="w-6 h-px bg-gradient-to-r from-emerald-400 to-emerald-300"></div>
+                  <span class="text-emerald-600 text-xs font-medium">SCALABLE SYSTEM</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm">Fleksibel menyesuaikan kebutuhan bisnis yang berkembang tanpa batasan.</p>
+          </div>
+        </div>
+        
+        <!-- Stats Highlight -->
+        <div class="grid grid-cols-3 gap-3 p-4 bg-white rounded-lg border border-slate-200">
+          <div class="text-center p-3">
+            <p class="text-emerald-600 font-bold text-2xl">100%</p>
+            <p class="text-slate-600 text-xs mt-1">Data Ownership</p>
+          </div>
+          <div class="text-center p-3">
+            <p class="text-emerald-600 font-bold text-2xl">0%</p>
+            <p class="text-slate-600 text-xs mt-1">Vendor Lock-in</p>
+          </div>
+          <div class="text-center p-3">
+            <p class="text-emerald-600 font-bold text-2xl">24/7</p>
+            <p class="text-slate-600 text-xs mt-1">System Access</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Kontrol Penuh Section -->
+      <div class="feature-card bg-gradient-to-br from-emerald-600 to-emerald-700 text-white p-8 rounded-2xl backdrop-blur-sm border-2 border-emerald-500/40 hover:border-emerald-300 hover:border-3 hover:shadow-xl hover:shadow-emerald-600/30 transition-all duration-300">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 text-emerald-300 rounded-xl flex items-center justify-center border-2 border-emerald-500/40">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div>
+            <h3 class="font-display text-xl font-bold mb-2 text-white">KONTROL PENUH<br>DATA PERUSAHAAN</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-6 h-px bg-gradient-to-r from-emerald-400 to-emerald-300"></div>
+              <span class="text-emerald-300 text-xs font-medium uppercase tracking-wider">EXCLUSIVE OWNERSHIP</span>
+            </div>
+          </div>
+        </div>
+        
+        <p class="text-white/90 text-sm mb-8 leading-relaxed">
+          Data karyawan sepenuhnya berada di bawah kontrol perusahaan. Lebih aman, lebih rapi, dan siap untuk kebutuhan jangka panjang.
+        </p>
+        
+        <ul class="space-y-4">
+          <li class="flex items-center gap-3 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-emerald-500/20 hover:border-emerald-400 hover:border-2">
+            <div class="w-10 h-10 bg-emerald-500/20 text-emerald-300 rounded flex items-center justify-center flex-shrink-0 border border-emerald-500/40 hover:border-emerald-300">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-white text-sm">Data Terisolasi</p>
+              <p class="text-white/70 text-xs">Tidak tercampur dengan data perusahaan lain</p>
+            </div>
+          </li>
+          <li class="flex items-center gap-3 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-emerald-500/20 hover:border-emerald-400 hover:border-2">
+            <div class="w-10 h-10 bg-emerald-500/20 text-emerald-300 rounded flex items-center justify-center flex-shrink-0 border border-emerald-500/40 hover:border-emerald-300">
+              <i class="fas fa-sliders-h"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-white text-sm">Struktur Fleksibel</p>
+              <p class="text-white/70 text-xs">Menyesuaikan kebijakan internal perusahaan</p>
+            </div>
+          </li>
+          <li class="flex items-center gap-3 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-emerald-500/20 hover:border-emerald-400 hover:border-2">
+            <div class="w-10 h-10 bg-emerald-500/20 text-emerald-300 rounded flex items-center justify-center flex-shrink-0 border border-emerald-500/40 hover:border-emerald-300">
+              <i class="fas fa-key"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-white text-sm">Tanpa Risiko Terkunci</p>
+              <p class="text-white/70 text-xs">Tidak ada risiko data terkunci vendor</p>
+            </div>
+          </li>
+          <li class="flex items-center gap-3 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-emerald-500/20 hover:border-emerald-400 hover:border-2">
+            <div class="w-10 h-10 bg-emerald-500/20 text-emerald-300 rounded flex items-center justify-center flex-shrink-0 border border-emerald-500/40 hover:border-emerald-300">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-white text-sm">Bebas Kembangkan</p>
+              <p class="text-white/70 text-xs">Tambah fitur tanpa batasan vendor</p>
+            </div>
+          </li>
+        </ul>
+        
+        <!-- Badge -->
+        <div class="mt-8 pt-6 border-t-2 border-emerald-500/30">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 rounded-lg border-2 border-emerald-500/30 hover:border-emerald-400 transition-colors duration-300">
+            <i class="fas fa-award text-emerald-300"></i>
+            <span class="text-white/90 text-sm font-medium">Sistem Milik Perusahaan • Database Eksklusif</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom CTA -->
+    <div class="mt-16 p-5 bg-gradient-to-r from-emerald-50 to-emerald-50/30 rounded-xl border border-emerald-200">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-emerald-200">
+            <i class="fas fa-handshake text-emerald-500"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-800">Siap transformasi sistem HR perusahaan Anda?</p>
+            <p class="text-slate-600 text-xs">Diskusikan kebutuhan spesifik dengan tim kami</p>
+          </div>
+        </div>
+        <a href="https://wa.me/6281282251136?text=Halo%20Khwarizmi%2C%20saya%20ingin%20konsultasi%20mengenai%20sistem%20HRIS." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold text-sm rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-sm hover:shadow flex items-center gap-2">
+          <i class="fab fa-whatsapp"></i>
+          Konsultasi Gratis
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Fase Produk Section -->
+<section id="fase" class="py-24 px-4 sm:px-6 bg-gradient-to-br from-orange-50/20 to-orange-50/5 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-orange-400/5 to-orange-500/3 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-br from-orange-500/5 to-orange-600/3 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-orange-300/3 to-orange-400/2 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/90 rounded-full border border-orange-200 mb-4">
+        <div class="w-2 h-2 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full"></div>
+        <span class="text-orange-600 font-bold text-xs uppercase tracking-wider">Development Phases</span>
+      </div>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tighter">Rencana Pengembangan Sistem</h2>
+      <p class="text-slate-600 max-w-2xl mx-auto">Sistem dikembangkan secara bertahap sesuai kebutuhan bisnis Anda</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <!-- Fase 1 -->
+      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200">
+            <span class="font-display font-bold">01</span>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-slate-900">FASE 1</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
+              <span class="text-orange-600 text-xs font-medium">FOUNDATION</span>
+            </div>
+          </div>
+        </div>
+        
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-user-clock text-xs"></i>
+            </div>
+            <span>Attendance System</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-file-signature text-xs"></i>
+            </div>
+            <span>Document Approval</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-file-export text-xs"></i>
+            </div>
+            <span>Export Data</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-map-marker-alt text-xs"></i>
+            </div>
+            <span>Location Lock</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-building text-xs"></i>
+            </div>
+            <span>In-Office / Out-Office Status</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-copy text-xs"></i>
+            </div>
+            <span>Document CC System</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-barcode text-xs"></i>
+            </div>
+            <span>Barcode Verification</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Fase 2 -->
+      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200">
+            <span class="font-display font-bold">02</span>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-slate-900">FASE 2</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
+              <span class="text-orange-600 text-xs font-medium">OPERATIONS</span>
+            </div>
+          </div>
+        </div>
+        
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-exchange-alt text-xs"></i>
+            </div>
+            <span>Import/Export Attendance</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-users-cog text-xs"></i>
+            </div>
+            <span>Shifting Management</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-user-minus text-xs"></i>
+            </div>
+            <span>Resign Employee</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-calendar-alt text-xs"></i>
+            </div>
+            <span>Time off Management</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-business-time text-xs"></i>
+            </div>
+            <span>Overtime Management</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Fase 3 -->
+      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200">
+            <span class="font-display font-bold">03</span>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-slate-900">FASE 3</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
+              <span class="text-orange-600 text-xs font-medium">FINANCE</span>
+            </div>
+          </div>
+        </div>
+        
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-money-check-alt text-xs"></i>
+            </div>
+            <span>Payroll Management</span>
+          </li>
+          <li class="flex items-center gap-2 text-slate-700 text-sm">
+            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
+              <i class="fas fa-handshake text-xs"></i>
+            </div>
+            <span>BPJS Integration</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Customizable Section -->
+<section class="py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-emerald-50/40 to-emerald-100/30 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Gradient mesh pattern -->
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-emerald-600/3"></div>
+    
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_70%,#10b98108_100%)]"></div>
+    
+    <!-- Accent gradient circles -->
+    <div class="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-br from-emerald-200/20 to-emerald-300/10 rounded-full blur-2xl"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-emerald-100/15 to-emerald-200/5 rounded-full blur-2xl"></div>
+    
+    <!-- Corner accents -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-emerald-50/30 to-transparent"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-emerald-50/30 to-transparent"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="bg-white/90 p-10 md:p-14 rounded-3xl shadow-lg border-2 border-emerald-100/80 backdrop-blur-sm">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-14 h-14 bg-gradient-to-br from-emerald-50 to-white text-emerald-600 rounded-2xl flex items-center justify-center border-2 border-emerald-200 shadow-sm">
+              <i class="fas fa-sliders-h text-xl"></i>
+            </div>
+            <div>
+              <div class="inline-flex items-center gap-2 mb-2">
+                <div class="w-2 h-2 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full"></div>
+                <span class="text-emerald-600 font-bold text-xs uppercase tracking-wider">Flexibility</span>
+              </div>
+              <h2 class="font-display text-3xl font-bold text-slate-900 tracking-tighter">CUSTOMIZABLE & SCALABLE</h2>
+              <p class="text-slate-500 mt-2">Sistemnya yang mengikuti alur kerja perusahaan</p>
+            </div>
+          </div>
+          
+          <p class="text-slate-800 text-xl font-semibold mb-10 leading-relaxed">
+            Kami tidak memaksa perusahaan mengikuti sistem. Sistem kami yang menyesuaikan dengan kebutuhan dan SOP internal Anda.
+          </p>
+          
+          <ul class="space-y-6 mb-10">
+            <li class="feature-card flex items-start gap-4 p-4 rounded-xl border border-emerald-100 hover:border-emerald-300 hover:border-2 hover:shadow-md transition-all duration-300 bg-white/80 hover:bg-white">
+              <div class="w-10 h-10 bg-gradient-to-br from-emerald-50 to-white text-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-emerald-200 hover:border-emerald-400 transition-colors duration-300">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-slate-800 text-lg mb-1">Alur Approval Disesuaikan</p>
+                <p class="text-slate-600">Sesuaikan dengan struktur hierarki dan kebijakan perusahaan Anda</p>
+              </div>
+            </li>
+            <li class="feature-card flex items-start gap-4 p-4 rounded-xl border border-emerald-100 hover:border-emerald-300 hover:border-2 hover:shadow-md transition-all duration-300 bg-white/80 hover:bg-white">
+              <div class="w-10 h-10 bg-gradient-to-br from-emerald-50 to-white text-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-emerald-200 hover:border-emerald-400 transition-colors duration-300">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-slate-800 text-lg mb-1">Field Data Fleksibel</p>
+                <p class="text-slate-600">Tambah atau modifikasi field data sesuai kebutuhan informasi perusahaan</p>
+              </div>
+            </li>
+            <li class="feature-card flex items-start gap-4 p-4 rounded-xl border border-emerald-100 hover:border-emerald-300 hover:border-2 hover:shadow-md transition-all duration-300 bg-white/80 hover:bg-white">
+              <div class="w-10 h-10 bg-gradient-to-br from-emerald-50 to-white text-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-emerald-200 hover:border-emerald-400 transition-colors duration-300">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-slate-800 text-lg mb-1">SOP Internal Terintegrasi</p>
+                <p class="text-slate-600">Sistem siap menyesuaikan dengan prosedur operasional standar perusahaan</p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="bg-gradient-to-r from-white to-emerald-50/70 p-5 rounded-xl border-2 border-emerald-200 hover:border-emerald-300 hover:shadow-md transition-all duration-300">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-lightbulb text-emerald-600 text-2xl"></i>
+              <div>
+                <p class="font-semibold text-slate-800">Punya fitur impian?</p>
+                <p class="text-slate-600 text-sm">Kami siap membantu mewujudkan kebutuhan khusus perusahaan Anda</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Card with Green Background -->
+        <div class="feature-card bg-gradient-to-br from-emerald-600 to-emerald-700 text-white p-8 rounded-2xl backdrop-blur-sm border-2 border-emerald-500/40 hover:border-emerald-300 hover:border-3 hover:shadow-xl hover:shadow-emerald-600/30 transition-all duration-300">
+          <div class="text-center mb-8">
+            <div class="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 text-emerald-300 rounded-2xl flex items-center justify-center mx-auto mb-4 border-2 border-emerald-500/40">
+              <i class="fas fa-cogs text-2xl"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-2 tracking-tight">Sistem Disesuaikan</h3>
+            <p class="text-emerald-200/90">Untuk workflow unik perusahaan Anda</p>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-emerald-500/20 hover:border-emerald-400 hover:border-2">
+              <span class="text-white font-medium">Workflow Custom</span>
+              <i class="fas fa-check-circle text-emerald-300"></i>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-emerald-500/20 hover:border-emerald-400 hover:border-2">
+              <span class="text-white font-medium">Field Data Flexibel</span>
+              <i class="fas fa-check-circle text-emerald-300"></i>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-emerald-500/20 hover:border-emerald-400 hover:border-2">
+              <span class="text-white font-medium">SOP Integration</span>
+              <i class="fas fa-check-circle text-emerald-300"></i>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-emerald-500/20 hover:border-emerald-400 hover:border-2">
+              <span class="text-white font-medium">Scalable Architecture</span>
+              <i class="fas fa-check-circle text-emerald-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section id="why" class="py-24 px-4 sm:px-6 bg-slate-900 text-white relative overflow-hidden">
+  <!-- Background Accent Effects -->
+  <div class="absolute inset-0">
+    <!-- Orange light glow 1 -->
+    <div class="absolute top-1/4 -left-24 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
+    <!-- Orange light glow 2 -->
+    <div class="absolute bottom-1/4 -right-24 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
+    <!-- Subtle gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-orange-900/5"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center gap-2 mb-4">
+        <div class="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
+        <div class="w-3 h-3 bg-orange-500/70 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+        <div class="w-3 h-3 bg-orange-500/50 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+      </div>
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 tracking-tighter">Kenapa Memilih HRIS by Khwarizmi?</h2>
+      <p class="text-slate-300 text-lg max-w-3xl mx-auto">Investasi sistem HR yang tepat untuk masa depan perusahaan Anda</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div class="feature-card bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
+        <div class="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/10 text-orange-400 rounded-xl flex items-center justify-center mb-5 border border-orange-500/20">
+          <i class="fas fa-dollar-sign"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3 text-white">One-time Investment</h3>
+        <p class="text-slate-300">Tanpa biaya langganan tahunan, investasi sekali untuk kepemilikan selamanya</p>
+      </div>
+      
+      <div class="feature-card bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
+        <div class="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/10 text-orange-400 rounded-xl flex items-center justify-center mb-5 border border-orange-500/20">
+          <i class="fas fa-crown"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3 text-white">Full System Ownership</h3>
+        <p class="text-slate-300">Sistem & data sepenuhnya milik perusahaan, tidak tergantung vendor</p>
+      </div>
+      
+      <div class="feature-card bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
+        <div class="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/10 text-orange-400 rounded-xl flex items-center justify-center mb-5 border border-orange-500/20">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3 text-white">Free Maintenance Tahun Pertama</h3>
+        <p class="text-slate-300">Dukungan penuh termasuk maintenance dan update selama tahun pertama</p>
+      </div>
+      
+      <div class="feature-card bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
+        <div class="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/10 text-orange-400 rounded-xl flex items-center justify-center mb-5 border border-orange-500/20">
+          <i class="fas fa-sliders-h"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3 text-white">100% Customizable</h3>
+        <p class="text-slate-300">Sesuaikan dengan kebutuhan bisnis dan SOP internal perusahaan</p>
+      </div>
+      
+      <div class="feature-card bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
+        <div class="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/10 text-orange-400 rounded-xl flex items-center justify-center mb-5 border border-orange-500/20">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3 text-white">Siap Dikembangkan</h3>
+        <p class="text-slate-300">Sistem yang siap pakai namun tetap fleksibel untuk pengembangan jangka panjang</p>
+      </div>
+      
+      <div class="feature-card bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
+        <div class="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/10 text-orange-400 rounded-xl flex items-center justify-center mb-5 border border-orange-500/20">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3 text-white">Data Security & Privacy</h3>
+        <p class="text-slate-300">Data tersimpan aman dalam server perusahaan atau pilihan hosting</p>
+      </div>
+    </div>
+    
+    <!-- Orange accent line at bottom -->
+    <div class="mt-16 pt-8 border-t border-orange-500/20">
+      <div class="flex items-center justify-center gap-4">
+        <div class="w-8 h-px bg-gradient-to-r from-transparent to-orange-500/50"></div>
+        <div class="text-orange-400/60 text-sm font-medium">Konsultasi Gratis • Custom Solution • Long-term Partnership</div>
+        <div class="w-8 h-px bg-gradient-to-l from-transparent to-orange-500/50"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 px-4 sm:px-6 bg-gradient-to-br from-emerald-50/20 to-emerald-50/5 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-emerald-400/5 to-emerald-500/3 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-br from-emerald-500/5 to-emerald-600/3 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <div class="bg-white/95 p-10 md:p-12 rounded-3xl shadow-card border border-emerald-100/50 backdrop-blur-sm">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full border border-emerald-200 mb-6">
+        <div class="w-2 h-2 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full"></div>
+        <span class="text-emerald-600 font-bold text-xs uppercase tracking-wider">Get Started</span>
+      </div>
+      
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tighter">Mulai Bangun Sistem HR Milik Anda</h2>
+      
+      <p class="text-slate-700 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+        Diskusikan kebutuhan perusahaan Anda bersama tim kami. Kami bantu rancang sistem HR yang <span class="text-emerald-600 font-semibold">relevan, aman, dan berkelanjutan.</span>
+      </p>
+      
+      <div class="flex flex-col items-center gap-8">
+        <a href="https://wa.me/6281282251136?text=Halo%20Khwarizmi%2C%20saya%20ingin%20konsultasi%20mengenai%20sistem%20HRIS." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="group relative inline-flex items-center justify-center gap-4 px-10 md:px-14 py-5 md:py-6 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold text-lg uppercase tracking-wide rounded-2xl hover:from-emerald-700 hover:to-emerald-800 hover:-translate-y-2 transition-all duration-300 shadow-2xl shadow-emerald-600/30 hover:shadow-emerald-700/40">
+          <i class="fab fa-whatsapp text-xl"></i>
+          Konsultasi Gratis Sekarang
+        </a>
+        
+        <div class="space-y-2">
+          <p class="text-slate-500 text-sm">Diskusi tanpa biaya untuk memahami kebutuhan sistem HR perusahaan Anda</p>
+          <div class="flex items-center justify-center gap-3">
+            <div class="flex items-center gap-1">
+              <i class="fas fa-clock text-emerald-500 text-xs"></i>
+              <span class="text-slate-500 text-xs">30-45 menit</span>
+            </div>
+            <div class="w-1 h-1 bg-slate-300 rounded-full"></div>
+            <div class="flex items-center gap-1">
+              <i class="fas fa-calendar-check text-emerald-500 text-xs"></i>
+              <span class="text-slate-500 text-xs">Jadwal fleksibel</span>
+            </div>
+            <div class="w-1 h-1 bg-slate-300 rounded-full"></div>
+            <div class="flex items-center gap-1">
+              <i class="fas fa-user-check text-emerald-500 text-xs"></i>
+              <span class="text-slate-500 text-xs">Tim ahli HRIS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-12 border-t border-emerald-100 bg-gradient-to-b from-white to-emerald-50/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex flex-col items-center md:items-start gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg overflow-hidden">
+            <img src="/img/logo-khwarizmi.png" alt="Logo Khwarizmi" class="max-w-full max-h-full object-contain">
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-xl text-slate-900">HRIS by <span class="text-emerald-600">Khwarizmi</span></h3>
+            <p class="text-slate-400 text-sm">Sistem HR Terintegrasi Sepenuhnya Milik Anda</p>
+          </div>
+        </div>
+        <p class="text-slate-500 text-sm text-center md:text-left max-w-md">Bangun sistem manajemen perusahaan yang stabil dan siap untuk jangka panjang</p>
+      </div>
+      
+      <div class="flex flex-col items-center md:items-end gap-4">
+        <div class="flex gap-6">
+          <a href="#masalah" class="text-slate-500 hover:text-emerald-600 text-sm font-medium transition-colors duration-300">Masalah</a>
+          <a href="#solusi" class="text-slate-500 hover:text-emerald-600 text-sm font-medium transition-colors duration-300">Solusi</a>
+          <a href="#fase" class="text-slate-500 hover:text-emerald-600 text-sm font-medium transition-colors duration-300">Fase</a>
+          <a href="#why" class="text-slate-500 hover:text-emerald-600 text-sm font-medium transition-colors duration-300">Keunggulan</a>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://wa.me/6281282251136?text=Halo%20Khwarizmi%2C%20saya%20ingin%20konsultasi%20mengenai%20sistem%20HRIS." 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center hover:bg-emerald-100 hover:text-emerald-700 transition-all duration-300 border border-emerald-200">
+            <i class="fab fa-whatsapp text-lg"></i>
+          </a>
+          
+          <a href="https://www.instagram.com/alkhwarizmi.id/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="w-10 h-10 bg-pink-50 text-pink-600 rounded-full flex items-center justify-center hover:bg-pink-100 hover:text-pink-700 transition-all duration-300 border border-pink-200">
+            <i class="fab fa-instagram text-lg"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-emerald-100 mt-8 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-400 text-xs text-center md:text-left">
+          © 2024 <span class="font-bold text-slate-900">HRIS by Khwarizmi</span>. All rights reserved.
+        </p>
+        <div class="flex gap-6 text-xs font-medium">
+          <span class="flex items-center gap-2 text-slate-500">
+            <div class="w-5 h-5 bg-emerald-50 text-emerald-600 rounded flex items-center justify-center">
+              <i class="fas fa-shield-alt text-xs"></i>
+            </div>
+            <span>Stability</span>
+          </span>
+          <span class="flex items-center gap-2 text-slate-500">
+            <div class="w-5 h-5 bg-emerald-50 text-emerald-600 rounded flex items-center justify-center">
+              <i class="fas fa-crown text-xs"></i>
+            </div>
+            <span>Ownership</span>
+          </span>
+          <span class="flex items-center gap-2 text-slate-500">
+            <div class="w-5 h-5 bg-emerald-50 text-emerald-600 rounded flex items-center justify-center">
+              <i class="fas fa-expand-arrows-alt text-xs"></i>
+            </div>
+            <span>Scalable</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
