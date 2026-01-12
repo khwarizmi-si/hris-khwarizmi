@@ -486,168 +486,295 @@
 </section>
 
 <!-- Fase Produk Section -->
-<section id="fase" class="py-24 px-4 sm:px-6 bg-gradient-to-br from-orange-50/20 to-orange-50/5 relative overflow-hidden">
-  <!-- Background decorative elements -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-orange-400/5 to-orange-500/3 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-br from-orange-500/5 to-orange-600/3 rounded-full blur-3xl"></div>
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-orange-300/3 to-orange-400/2 rounded-full blur-3xl"></div>
-  </div>
-  
-  <div class="max-w-7xl mx-auto relative z-10">
-    <div class="text-center mb-16">
-      <div class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/90 rounded-full border border-orange-200 mb-4">
-        <div class="w-2 h-2 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full"></div>
-        <span class="text-orange-600 font-bold text-xs uppercase tracking-wider">Development Phases</span>
+<section id="fase" class="py-16 px-4 sm:px-6 bg-gradient-to-br from-orange-50/20 to-orange-50/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full border border-orange-200 mb-3">
+        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+        <span class="text-orange-600 font-bold text-xs uppercase">Development Phases</span>
       </div>
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tighter">Rencana Pengembangan Sistem</h2>
+      <h2 class="text-3xl font-bold text-slate-900 mb-3">Rencana Pengembangan Sistem</h2>
       <p class="text-slate-600 max-w-2xl mx-auto">Sistem dikembangkan secara bertahap sesuai kebutuhan bisnis Anda</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <!-- Fase 1 -->
-      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200">
-            <span class="font-display font-bold">01</span>
-          </div>
-          <div>
-            <h3 class="font-display font-bold text-slate-900">FASE 1</h3>
-            <div class="flex items-center gap-2 mt-1">
-              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
-              <span class="text-orange-600 text-xs font-medium">FOUNDATION</span>
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <!-- Left Column: Tabs Content -->
+      <div class="space-y-6">
+        <!-- Tabs Navigation -->
+        <div class="flex space-x-1 bg-white rounded-xl border border-slate-200 p-1 shadow-sm">
+          <button 
+            class="fase-tab flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all duration-300 fase-1-tab active bg-gradient-to-r from-orange-100 to-orange-50 border border-orange-200 text-orange-700"
+            data-fase="1"
+          >
+            <div class="flex items-center justify-center gap-2">
+              <div class="w-6 h-6 bg-white text-orange-600 rounded-md flex items-center justify-center shadow-sm">
+                <span class="font-bold">01</span>
+              </div>
+              <span>Fase 1: Foundation</span>
             </div>
+          </button>
+          <button 
+            class="fase-tab flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all duration-300 fase-2-tab bg-white text-slate-600 border border-transparent hover:bg-slate-200 hover:border-slate-200 hover:text-slate-800"
+            data-fase="2"
+          >
+            <div class="flex items-center justify-center gap-2">
+              <div class="w-6 h-6 bg-slate-100 text-slate-600 rounded-md flex items-center justify-center hover:bg-slate-200 transition-colors">
+                <span class="font-bold">02</span>
+              </div>
+              <span>Fase 2: Operations</span>
+            </div>
+          </button>
+          <button 
+            class="fase-tab flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all duration-300 fase-3-tab bg-white text-slate-600 border border-transparent hover:bg-slate-200 hover:border-slate-200 hover:text-slate-800"
+            data-fase="3"
+          >
+            <div class="flex items-center justify-center gap-2">
+              <div class="w-6 h-6 bg-slate-100 text-slate-600 rounded-md flex items-center justify-center hover:bg-slate-200 transition-colors">
+                <span class="font-bold">03</span>
+              </div>
+              <span>Fase 3: Finance</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="fase-content fase-1-content active animate-fadeIn">
+          <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg flex items-center justify-center border border-orange-200">
+                <span class="font-bold text-orange-600">01</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Fase 1: Foundation</h3>
+                <p class="text-slate-600 text-sm">Fitur dasar untuk operasional HR</p>
+              </div>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-user-clock text-xs"></i>
+                </div>
+                <span>Attendance System</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-file-signature text-xs"></i>
+                </div>
+                <span>Document Approval</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-file-export text-xs"></i>
+                </div>
+                <span>Export Data</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-map-marker-alt text-xs"></i>
+                </div>
+                <span>Location Lock</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-building text-xs"></i>
+                </div>
+                <span>In-Office / Out-Office Status</span>
+              </li>
+            </ul>
           </div>
         </div>
-        
-        <ul class="space-y-3">
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-user-clock text-xs"></i>
+
+        <div class="fase-content fase-2-content hidden animate-fadeIn">
+          <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg flex items-center justify-center border border-orange-200">
+                <span class="font-bold text-orange-600">02</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Fase 2: Operations</h3>
+                <p class="text-slate-600 text-sm">Manajemen operasional karyawan</p>
+              </div>
             </div>
-            <span>Attendance System</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-file-signature text-xs"></i>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-exchange-alt text-xs"></i>
+                </div>
+                <span>Import/Export Attendance</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-users-cog text-xs"></i>
+                </div>
+                <span>Shifting Management</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-user-minus text-xs"></i>
+                </div>
+                <span>Resign Employee</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-calendar-alt text-xs"></i>
+                </div>
+                <span>Time off Management</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="fase-content fase-3-content hidden animate-fadeIn">
+          <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg flex items-center justify-center border border-orange-200">
+                <span class="font-bold text-orange-600">03</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Fase 3: Finance</h3>
+                <p class="text-slate-600 text-sm">Integrasi sistem keuangan</p>
+              </div>
             </div>
-            <span>Document Approval</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-file-export text-xs"></i>
-            </div>
-            <span>Export Data</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-map-marker-alt text-xs"></i>
-            </div>
-            <span>Location Lock</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-building text-xs"></i>
-            </div>
-            <span>In-Office / Out-Office Status</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-copy text-xs"></i>
-            </div>
-            <span>Document CC System</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-barcode text-xs"></i>
-            </div>
-            <span>Barcode Verification</span>
-          </li>
-        </ul>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-money-check-alt text-xs"></i>
+                </div>
+                <span>Payroll Management</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-700">
+                <div class="w-6 h-6 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-handshake text-xs"></i>
+                </div>
+                <span>BPJS Integration</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      
-      <!-- Fase 2 -->
-      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200">
-            <span class="font-display font-bold">02</span>
+
+      <!-- Right Column: Image -->
+      <div class="order-first lg:order-last">
+        <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 border-2 border-orange-200 shadow-lg">
+          <!-- Image untuk Development Phases -->
+          <div class="rounded-xl mb-4 overflow-hidden">
+            <img 
+              src="img/orang-pusing.png" 
+              alt="Pengembangan Sistem HRIS bertahap - Fase Foundation, Operations, Finance"
+              class="w-full h-auto rounded-xl object-cover"
+              loading="lazy"
+            >
           </div>
-          <div>
-            <h3 class="font-display font-bold text-slate-900">FASE 2</h3>
-            <div class="flex items-center gap-2 mt-1">
-              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
-              <span class="text-orange-600 text-xs font-medium">OPERATIONS</span>
-            </div>
-          </div>
-        </div>
-        
-        <ul class="space-y-3">
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-exchange-alt text-xs"></i>
-            </div>
-            <span>Import/Export Attendance</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-users-cog text-xs"></i>
-            </div>
-            <span>Shifting Management</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-user-minus text-xs"></i>
-            </div>
-            <span>Resign Employee</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-calendar-alt text-xs"></i>
-            </div>
-            <span>Time off Management</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-business-time text-xs"></i>
-            </div>
-            <span>Overtime Management</span>
-          </li>
-        </ul>
-      </div>
-      
-      <!-- Fase 3 -->
-      <div class="feature-card bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-50 text-orange-600 rounded-lg flex items-center justify-center border border-orange-200">
-            <span class="font-display font-bold">03</span>
-          </div>
-          <div>
-            <h3 class="font-display font-bold text-slate-900">FASE 3</h3>
-            <div class="flex items-center gap-2 mt-1">
-              <div class="w-6 h-px bg-gradient-to-r from-orange-400 to-orange-300"></div>
-              <span class="text-orange-600 text-xs font-medium">FINANCE</span>
+          
+          <!-- Info Box -->
+          <div class="bg-white rounded-xl p-5 border border-orange-100">
+            <h4 class="font-bold text-slate-900 mb-3">Fleksibel & Bertahap</h4>
+            <p class="text-slate-600 text-sm mb-4">Mulai dari kebutuhan dasar, kemudian berkembang sesuai pertumbuhan bisnis Anda.</p>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-calendar-check text-orange-600"></i>
+              </div>
+              <p class="text-slate-700 text-sm">Setiap fase dapat dikustomisasi sesuai timeline kebutuhan</p>
             </div>
           </div>
         </div>
-        
-        <ul class="space-y-3">
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-money-check-alt text-xs"></i>
-            </div>
-            <span>Payroll Management</span>
-          </li>
-          <li class="flex items-center gap-2 text-slate-700 text-sm">
-            <div class="w-5 h-5 bg-orange-50 text-orange-600 rounded flex items-center justify-center flex-shrink-0 border border-orange-100">
-              <i class="fas fa-handshake text-xs"></i>
-            </div>
-            <span>BPJS Integration</span>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.fase-tab');
+  const contents = document.querySelectorAll('.fase-content');
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const fase = this.getAttribute('data-fase');
+      
+      // Remove active class from all tabs
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.className = t.className.replace(/bg-gradient-to-r from-orange-100 to-orange-50 border border-orange-200 text-orange-700/g, '');
+        t.classList.add('bg-white', 'text-slate-600', 'border', 'border-transparent', 'hover:bg-slate-200', 'hover:border-slate-200', 'hover:text-slate-800');
+        
+        // Reset icon background and add hover to icon
+        const icon = t.querySelector('div > div:first-child');
+        if (icon) {
+          icon.className = 'w-6 h-6 bg-slate-100 text-slate-600 rounded-md flex items-center justify-center hover:bg-slate-200 transition-colors';
+        }
+      });
+      
+      // Hide all contents
+      contents.forEach(c => {
+        c.classList.remove('active');
+        c.classList.add('hidden');
+        c.classList.remove('animate-fadeIn');
+      });
+      
+      // Set active tab styles (NO HOVER)
+      this.classList.remove('bg-white', 'text-slate-600', 'border', 'border-transparent', 'hover:bg-slate-200', 'hover:border-slate-200', 'hover:text-slate-800');
+      this.classList.add('active', 'bg-gradient-to-r', 'from-orange-100', 'to-orange-50', 'border', 'border-orange-200', 'text-orange-700');
+      
+      // Set active icon (NO HOVER)
+      const activeIcon = this.querySelector('div > div:first-child');
+      if (activeIcon) {
+        activeIcon.className = 'w-6 h-6 bg-white text-orange-600 rounded-md flex items-center justify-center shadow-sm';
+      }
+      
+      // Show corresponding content with animation
+      const activeContent = document.querySelector(`.fase-${fase}-content`);
+      activeContent.classList.remove('hidden');
+      activeContent.classList.add('active', 'animate-fadeIn');
+      
+      // Trigger reflow for animation
+      void activeContent.offsetWidth;
+    });
+  });
+});
+</script>
+
+<style>
+.fase-tab {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.fase-content {
+  display: none;
+}
+
+.fase-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .order-first {
+    order: -1;
+  }
+  
+  .lg\:order-last {
+    order: 2;
+  }
+}
+</style>
 
 <!-- Why Choose Us Section -->
 <section id="why" class="py-24 px-4 sm:px-6 bg-slate-900 text-white relative overflow-hidden">
@@ -733,54 +860,41 @@
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="py-24 px-4 sm:px-6 bg-gradient-to-br from-emerald-50/20 to-emerald-50/5 relative overflow-hidden">
-  <!-- Background decorative elements -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-br from-emerald-400/5 to-emerald-500/3 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-br from-emerald-500/5 to-emerald-600/3 rounded-full blur-3xl"></div>
-  </div>
-  
-  <div class="max-w-4xl mx-auto text-center relative z-10">
-    <div class="bg-white/95 p-10 md:p-12 rounded-3xl shadow-card border border-emerald-100/50 backdrop-blur-sm">
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full border border-emerald-200 mb-6">
-        <div class="w-2 h-2 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full"></div>
-        <span class="text-emerald-600 font-bold text-xs uppercase tracking-wider">Get Started</span>
+<!-- CTA Section dengan Visual -->
+<section class="py-16 px-4 sm:px-6 bg-gradient-to-br from-emerald-50/20 to-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
+      <!-- Left Column: Gambar -->
+      <div class="order-2 lg:order-1">
+        <div class="bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl p-4 border-2 border-emerald-200 shadow-lg">
+          <!-- Gambar Ilustrasi Konsultasi -->
+          <img 
+            src="img/orang-pusing.png" 
+            alt="Ilustrasi konsultasi sistem HRIS - Diskusi tim ahli dengan manajemen perusahaan"
+            class="w-full h-auto object-contain rounded-lg"
+            loading="lazy"
+          >
+        </div>
       </div>
       
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tighter">Mulai Bangun Sistem HR Milik Anda</h2>
-      
-      <p class="text-slate-700 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-        Diskusikan kebutuhan perusahaan Anda bersama tim kami. Kami bantu rancang sistem HR yang <span class="text-emerald-600 font-semibold">relevan, aman, dan berkelanjutan.</span>
-      </p>
-      
-      <div class="flex flex-col items-center gap-8">
-        <a href="https://wa.me/6281282251136?text=Halo%20Khwarizmi%2C%20saya%20ingin%20konsultasi%20mengenai%20sistem%20HRIS." 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="group relative inline-flex items-center justify-center gap-4 px-10 md:px-14 py-5 md:py-6 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold text-lg uppercase tracking-wide rounded-2xl hover:from-emerald-700 hover:to-emerald-800 hover:-translate-y-2 transition-all duration-300 shadow-2xl shadow-emerald-600/30 hover:shadow-emerald-700/40">
-          <i class="fab fa-whatsapp text-xl"></i>
-          Konsultasi Gratis Sekarang
-        </a>
-        
-        <div class="space-y-2">
-          <p class="text-slate-500 text-sm">Diskusi tanpa biaya untuk memahami kebutuhan sistem HR perusahaan Anda</p>
-          <div class="flex items-center justify-center gap-3">
-            <div class="flex items-center gap-1">
-              <i class="fas fa-clock text-emerald-500 text-xs"></i>
-              <span class="text-slate-500 text-xs">30-45 menit</span>
-            </div>
-            <div class="w-1 h-1 bg-slate-300 rounded-full"></div>
-            <div class="flex items-center gap-1">
-              <i class="fas fa-calendar-check text-emerald-500 text-xs"></i>
-              <span class="text-slate-500 text-xs">Jadwal fleksibel</span>
-            </div>
-            <div class="w-1 h-1 bg-slate-300 rounded-full"></div>
-            <div class="flex items-center gap-1">
-              <i class="fas fa-user-check text-emerald-500 text-xs"></i>
-              <span class="text-slate-500 text-xs">Tim ahli HRIS</span>
-            </div>
-          </div>
+      <!-- Right Column: CTA Content -->
+      <div class="order-1 lg:order-2">
+        <div class="text-center lg:text-left">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Mulai Bangun Sistem HR Milik Anda</h2>
+          
+          <p class="text-slate-700 mb-6">
+            Diskusikan kebutuhan perusahaan Anda bersama tim kami.<br>
+            Kami bantu rancang sistem HR yang <span class="text-emerald-600 font-semibold">relevan, aman, dan berkelanjutan.</span>
+          </p>
+          
+          <!-- CTA Button -->
+          <a href="https://wa.me/6281282251136?text=Halo%20Khwarizmi%2C%20saya%20ingin%20konsultasi%20mengenai%20sistem%20HRIS." 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 shadow-md">
+            <i class="fab fa-whatsapp"></i>
+            Konsultasi Gratis Sekarang
+          </a>
         </div>
       </div>
     </div>
