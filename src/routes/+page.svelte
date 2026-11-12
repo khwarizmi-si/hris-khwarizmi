@@ -33,6 +33,7 @@
 		Zap
 	} from 'lucide-svelte';
 	import CinematicHero from '$lib/components/CinematicHero.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 	import WhatsAppIcon from '$lib/components/WhatsAppIcon.svelte';
 	import { EMAIL_URL, INSTAGRAM_URL, SITE_URL, WHATSAPP_URL } from '$lib/config';
 
@@ -236,33 +237,7 @@
 </svelte:head>
 
 <!-- Navbar mengambang -->
-<header class="pointer-events-none fixed inset-x-0 top-0 z-50">
-	<nav class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 pt-4 sm:px-6">
-		<a
-			href="/"
-			class="pointer-events-auto flex items-center gap-2.5 rounded-2xl border border-slate-200 bg-white/80 py-1.5 pr-4 pl-1.5 backdrop-blur-xl"
-		>
-			<img src="/logo-khwarizmi-192.png" alt="" class="h-8 w-8 rounded-xl" />
-			<span class="text-sm font-black tracking-tight sm:text-base">HRIS <span class="text-brand-600">by Khwarizmi</span></span>
-		</a>
-		<div class="pointer-events-auto flex items-center gap-2">
-			<div class="hidden items-center rounded-2xl border border-slate-200 bg-white/80 p-1 backdrop-blur-xl md:flex">
-				<a href="#masalah" class="rounded-xl px-3.5 py-1.5 text-sm font-bold text-slate-500 hover:text-slate-800">Masalah</a>
-				<a href="#solusi" class="rounded-xl px-3.5 py-1.5 text-sm font-bold text-slate-500 hover:text-slate-800">Solusi</a>
-				<a href="#fase" class="rounded-xl px-3.5 py-1.5 text-sm font-bold text-slate-500 hover:text-slate-800">Fase</a>
-				<a href="#keunggulan" class="rounded-xl px-3.5 py-1.5 text-sm font-bold text-slate-500 hover:text-slate-800">Keunggulan</a>
-			</div>
-			<a
-				href={WHATSAPP_URL}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="pressable inline-flex items-center gap-2 rounded-2xl border border-brand-700 bg-brand-500 px-4 py-2 text-sm font-bold text-white shadow-[0_3px_0_0_#006151] hover:shadow-[0_2px_0_0_#006151]"
-			>
-				<WhatsAppIcon size={16} /> Konsultasi
-			</a>
-		</div>
-	</nav>
-</header>
+<Navbar whatsappUrl={WHATSAPP_URL} />
 
 <main>
 	<!-- Hero sinematik (scroll-driven) -->
