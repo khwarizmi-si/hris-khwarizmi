@@ -1,0 +1,6 @@
+{
+	// Cloudflare Pages: build statis ke ./build (lihat svelte.config.js).
+	"name": "hris-khwarizmi",
+	"pages_build_output_dir": "./build",
+	"compatibility_date": "2026-07-14"
+}

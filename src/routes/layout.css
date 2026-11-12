@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'DIN Rounded';
+	src: url('/fonts/DIN Next Rounded LT W01 Regular.ttf') format('truetype');
+	font-display: swap;
+	font-style: normal;
+	font-weight: 400 500;
+}
+
+@font-face {
+	font-family: 'DIN Rounded';
+	src: url('/fonts/DIN Next Rounded LT W04 Medium.otf') format('opentype');
+	font-display: swap;
+	font-style: normal;
+	font-weight: 600 900;
+}
+
+/* Palet HRIS: hijau #01866F sebagai warna utama (pengganti oranye di
+   Workspace), oranye tetap dipakai sebagai aksen. Pola UI lain mengikuti
+   UI_STYLE_GUIDE.md di workspace-khwarizmi. */
+@theme {
+	--font-sans: 'DIN Rounded', 'Nunito', ui-sans-serif, system-ui, sans-serif;
+
+	--color-brand-50: #e8f6f3;
+	--color-brand-100: #c9ebe3;
+	--color-brand-200: #9dd9cb;
+	--color-brand-300: #6cc3b0;
+	--color-brand-400: #3fae97;
+	--color-brand-500: #01866f;
+	--color-brand-600: #017563;
+	--color-brand-700: #006151;
+	--color-brand-800: #004d41;
+	--color-brand-900: #003a31;
+	--color-brand-950: #00241f;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #f8fafc;
+	color: #0f172a;
+	overflow-x: hidden;
+}
+
+/* Respons tekan seragam dengan Workspace: hover turun setengah langkah,
+   ditekan turun penuh dan shadow dilepas. */
+.pressable {
+	transition-property: transform, box-shadow;
+	transition-duration: 150ms;
+	transition-timing-function: ease;
+	will-change: transform;
+}
+
+@media (hover: hover) {
+	.pressable:hover {
+		transform: translateY(1px);
+	}
+}
+
+.pressable:active {
+	transform: translateY(3px);
+	box-shadow: none !important;
+}
