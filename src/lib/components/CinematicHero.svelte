@@ -231,17 +231,17 @@
 			<div class="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-evenly px-4 py-6 lg:grid lg:grid-cols-[1fr_1.5fr] lg:grid-rows-2 lg:gap-x-10 lg:px-12 lg:py-0">
 				<!-- Nama brand -->
 				<div class="card-brand gsap-reveal z-20 order-1 flex w-full flex-col items-center lg:col-start-1 lg:row-start-1 lg:items-start lg:self-end lg:pb-6">
-					<img src="/logo-khwarizmi-192.png" alt="" class="mb-4 hidden h-14 w-14 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] lg:[@media(min-height:780px)]:block" />
+					<img src="/logo-khwarizmi-192.png" alt="" class="mb-4 hidden h-14 w-14 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] lg:block" />
 					<h2 class="text-card-silver text-6xl leading-none font-black tracking-tighter uppercase md:text-7xl lg:text-[6.5rem]">HRIS</h2>
 					<p class="mt-1 text-sm font-bold tracking-[0.4em] text-brand-100/70 uppercase lg:text-base">by Khwarizmi</p>
 				</div>
 
 				<!-- Mockup dashboard -->
 				<div
-					class="mockup-wrapper relative z-10 order-2 flex w-full items-center justify-center py-2 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-full lg:py-0"
+					class="mockup-wrapper relative z-10 order-2 flex h-[300px] w-full items-center justify-center sm:h-[380px] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-[560px]"
 					style="perspective: 1000px"
 				>
-					<div bind:this={mockupEl} class="mockup-box preserve-3d relative w-full will-change-transform">
+					<div bind:this={mockupEl} class="preserve-3d relative w-full max-w-[680px] will-change-transform">
 						<div class="mockup-frame rounded-[28px] border border-white/60 bg-white p-2 sm:p-3">
 							<img
 								src="/img/mockup-hris.png"
@@ -253,7 +253,7 @@
 						</div>
 
 						<!-- Kartu modul: berganti Absensi → Approval → Payroll saat di-scroll -->
-						<div class="absolute -right-6 -bottom-4 z-20 hidden w-[290px] lg:block">
+						<div class="absolute right-0 -bottom-6 z-20 hidden w-[290px] sm:block lg:-right-6 lg:-bottom-4">
 							<!-- Absensi -->
 							<div class="module-0 module-card absolute right-0 bottom-0 w-full">
 								<div class="module-item mb-3 flex items-center justify-between">
@@ -328,9 +328,10 @@
 								</div>
 							</div>
 						</div>
+					</div>
 
-					<!-- Badge kaca melayang (di dalam kotak mockup agar posisinya ikut gambar) -->
-					<div class="floating-badge floating-ui-badge absolute bottom-[10%] -left-3 z-30 flex items-center gap-3 rounded-xl p-3 lg:-left-10 lg:gap-4 lg:rounded-2xl lg:p-4">
+					<!-- Badge kaca melayang -->
+					<div class="floating-badge floating-ui-badge absolute bottom-[8%] left-0 z-30 flex items-center gap-3 rounded-xl p-3 lg:bottom-[10%] lg:-left-8 lg:gap-4 lg:rounded-2xl lg:p-4">
 						<div class="flex h-8 w-8 items-center justify-center rounded-full border border-brand-300/40 bg-brand-400/20 text-brand-100 lg:h-10 lg:w-10">
 							<Crown size={18} />
 						</div>
@@ -339,7 +340,7 @@
 							<p class="text-[10px] font-medium text-brand-100/60 lg:text-xs">100% milik perusahaan</p>
 						</div>
 					</div>
-					<div class="floating-badge floating-ui-badge absolute -top-5 right-4 z-30 hidden items-center gap-3 rounded-xl p-3 sm:flex lg:-top-7 lg:right-12 lg:gap-4 lg:rounded-2xl lg:p-4">
+					<div class="floating-badge floating-ui-badge absolute -top-4 right-4 z-30 hidden items-center gap-3 rounded-xl p-3 sm:flex lg:-top-6 lg:right-10 lg:gap-4 lg:rounded-2xl lg:p-4">
 						<div class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-300/40 bg-amber-400/20 text-amber-200 lg:h-10 lg:w-10">
 							<CalendarClock size={18} />
 						</div>
@@ -347,7 +348,6 @@
 							<p class="text-xs font-bold tracking-tight text-white lg:text-sm">Cuti disetujui</p>
 							<p class="text-[10px] font-medium text-brand-100/60 lg:text-xs">2 hari · oleh atasan</p>
 						</div>
-					</div>
 					</div>
 				</div>
 
@@ -458,17 +458,6 @@
 		box-shadow:
 			0 8px 0 0 #9dd9cb,
 			0 40px 80px -15px rgb(0 0 0 / 0.55);
-	}
-
-	/* Lebar mockup dibatasi tinggi layar supaya tidak menimpa teks brand
-	   dan teks fitur di layar pendek / tablet. */
-	.mockup-box {
-		max-width: min(680px, max(220px, calc((100svh - 340px) * 1.35)));
-	}
-	@media (min-width: 1024px) {
-		.mockup-box {
-			max-width: min(680px, calc((100svh - 180px) * 1.3));
-		}
 	}
 
 	.module-card {
