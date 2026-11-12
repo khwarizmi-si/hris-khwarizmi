@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://hris.khwarizmi.id';
+export const SITE_URL = 'https://hris.khwarizmi.co.id';
 
 const WA_NUMBER = '6281282251136';
 const WA_TEXT = 'Halo Khwarizmi, saya ingin konsultasi mengenai sistem HRIS.';
