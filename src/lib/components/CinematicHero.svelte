@@ -230,10 +230,10 @@
 
 			<div class="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-evenly px-4 py-6 lg:grid lg:grid-cols-[1fr_1.5fr] lg:grid-rows-2 lg:gap-x-10 lg:px-12 lg:py-0">
 				<!-- Nama brand -->
-				<div class="card-brand gsap-reveal z-20 order-1 flex w-full flex-col items-center lg:col-start-1 lg:row-start-1 lg:items-start lg:self-end lg:pb-6">
+				<div class="card-brand gsap-reveal z-30 order-1 flex w-full flex-col items-center lg:col-start-1 lg:row-start-1 lg:items-start lg:self-end lg:pb-6">
 					<img src="/logo-khwarizmi-192.png" alt="" class="mb-4 hidden h-14 w-14 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] lg:block" />
 					<h2 class="text-card-silver text-6xl leading-none font-black tracking-tighter uppercase md:text-7xl lg:text-[6.5rem]">HRIS</h2>
-					<p class="mt-1 text-sm font-bold tracking-[0.4em] text-brand-100/70 uppercase lg:text-base">by Khwarizmi</p>
+					<p class="mt-1 text-sm font-bold tracking-[0.4em] text-brand-100 uppercase lg:text-base legible">by Khwarizmi</p>
 				</div>
 
 				<!-- Mockup dashboard -->
@@ -352,11 +352,11 @@
 				</div>
 
 				<!-- Teks fitur -->
-				<div class="card-copy gsap-reveal z-20 order-3 flex w-full flex-col justify-center px-4 text-center lg:col-start-1 lg:row-start-2 lg:justify-start lg:self-start lg:px-0 lg:text-left">
+				<div class="card-copy legible gsap-reveal z-30 order-3 flex w-full flex-col justify-center px-4 text-center lg:col-start-1 lg:row-start-2 lg:justify-start lg:self-start lg:px-0 lg:text-left">
 					<h3 class="mb-0 text-2xl font-black tracking-tight text-white md:text-3xl lg:mb-5 lg:text-4xl">
 						Satu sistem untuk seluruh urusan HR.
 					</h3>
-					<p class="mx-auto hidden max-w-sm text-sm leading-relaxed text-brand-50/75 md:block md:text-base lg:mx-0 lg:mb-6 lg:max-w-none lg:text-lg">
+					<p class="mx-auto hidden max-w-sm text-sm leading-relaxed text-brand-50 md:block md:text-base lg:mx-0 lg:mb-6 lg:max-w-none lg:text-lg">
 						Dibangun khusus untuk perusahaan Anda — data, sistem, dan pengembangannya sepenuhnya di tangan Anda.
 					</p>
 					<ul class="mt-4 hidden flex-col gap-2.5 lg:mt-0 lg:flex">
@@ -418,13 +418,22 @@
 		filter: drop-shadow(0 10px 20px rgb(1 134 111 / 0.2)) drop-shadow(0 2px 4px rgb(1 134 111 / 0.15));
 	}
 
+	/* Teks di atas kartu hijau bisa menimpa area putih mockup, jadi diberi
+	   halo hijau gelap agar tetap terbaca di kedua latar. */
+	.legible {
+		text-shadow:
+			0 0 2px rgb(0 36 31 / 0.9),
+			0 1px 3px rgb(0 36 31 / 0.85),
+			0 4px 18px rgb(0 36 31 / 0.75);
+	}
+
 	.text-card-silver {
-		background: linear-gradient(180deg, #ffffff 0%, #9dd9cb 100%);
+		background: linear-gradient(180deg, #ffffff 0%, #c9ebe3 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
 		transform: translateZ(0);
-		filter: drop-shadow(0 12px 24px rgb(0 0 0 / 0.5)) drop-shadow(0 4px 8px rgb(0 0 0 / 0.35));
+		filter: drop-shadow(0 0 1.5px rgb(0 36 31 / 0.95)) drop-shadow(0 2px 4px rgb(0 36 31 / 0.8)) drop-shadow(0 12px 24px rgb(0 0 0 / 0.5));
 	}
 
 	.premium-depth-card {
